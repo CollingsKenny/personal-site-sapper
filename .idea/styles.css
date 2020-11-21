@@ -1,0 +1,115 @@
+body {
+  --gray-darker: #0b0b0b;
+  --gray-dark: #1d2225;
+  --gray-light: #cfdce2;
+  --gray-medium: #85a0ad;
+
+  --font-logo: 'Consolas', monospace;
+  --font-caption: 'PT Sans Caption', sans-serif;
+  --font-text: 'PT Sans', sans-serif;
+
+  background-color: var(--gray-dark);
+  font-family: var(--font-text);
+  color: var(--gray-light);
+  margin: 0;
+}
+
+/* ================== */
+/*      Header        */
+/* ================== */
+header {
+  background-color: var(--gray-darker);
+  width: 100%;
+  /* position: fixed;
+  top: 0;
+  height: 69px; */
+}
+
+.header-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 22px 32px;
+  max-width: 640px;
+}
+
+.logo {
+  font-family: var(--font-logo);
+  font-weight: 400;
+  font-size: 23px;
+  color: var(--gray-light);
+  margin: 0;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+nav a {
+  color: var(--gray-light);
+  font-family: var(--font-caption);
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+nav .active {
+  opacity: 1;
+}
+
+/* ================== */
+/*      Main          */
+/* ================== */
+main {
+  margin: 0 auto;
+  padding: 0 32px;
+  max-width: 640px;
+  /* padding-top: 69px; */
+}
+
+article {
+  border-bottom: 1px solid var(--gray-light);
+  margin: 32px 0;
+}
+
+/* All elements in article have y-spacing of 9px */
+article * {
+  margin: 9px 0;
+}
+
+h2 {
+  font-size: 24px;
+  letter-spacing: 0.035em;
+}
+
+time {
+  font-family: var(--font-caption);
+  font-size: 14px;
+  display: block;
+  color: var(--gray-medium);
+}
+
+.tags {
+  --space-tag: 4.5px;
+  margin-top: 12px;
+  margin-bottom: 18px;
+  margin-left: calc(var(--space-tag) * -1);
+}
+
+.tags * {
+  margin: 0 var(--space-tag);
+  display: inline-block;
+}
+
+.tags a {
+  border-radius: 7px;
+  background-color: #e7b9aa;
+  padding: 2.5px 8px 4px 6px;
+
+  color: #bc3003;
+  font-size: 14px;
+  font-weight: 800;
+}
