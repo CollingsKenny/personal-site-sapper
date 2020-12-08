@@ -40,7 +40,11 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<main>
+	<h1>Kenny Collings</h1>
+	<p>🌐 web developer - 🐧 linux enthusiast - 💻 computer nerd - 🏞️ outdoorsman</p>
+	<p>Hi, I like to make thing sometimes. Currently testing software at Cepheid.</p>
+</main>
 
 <figure>
 	<img alt="Success Kid" src="{successkid}">
