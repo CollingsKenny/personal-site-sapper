@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import grayMatter from "gray-matter";
 
-const CONTENT_PATH = "content/blog";
+import { CONTENT_PATH } from "../../config";
 
 // Map across "content/blog" folder and create a list of the metadata from the index.md files.
 const posts = fs.readdirSync(CONTENT_PATH)
@@ -11,9 +11,10 @@ const posts = fs.readdirSync(CONTENT_PATH)
 	return grayMatter(post).data;
 });
 
+// Return the posts reversed (so newest post is a the top of the page)
 export function get(req, res) {
 	res.writeHead(200, {
 		'Content-Type': 'application/json'
 	});
-	res.end(JSON.stringify(posts));
+	res.end(JSON.stringify(posts.reverse()));
 }

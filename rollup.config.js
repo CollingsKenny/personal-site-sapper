@@ -8,18 +8,11 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
-import { mdsvex } from "mdsvex";
-import glob from 'rollup-plugin-glob';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
-const extensions = ['.svelte', '.svx'];
-const mdconfig = { 
-	layout: {
-	blog: "./src/layouts/blog.svelte"
-}}
 
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
@@ -38,9 +31,7 @@ export default {
 			svelte({
 				dev,
 				hydratable: true,
-				emitCss: true,
-				extensions,
-				preprocess: mdsvex(mdconfig)
+				emitCss: true
 			}),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
@@ -51,7 +42,6 @@ export default {
 				dedupe: ['svelte']
 			}),
 			commonjs(),
-			glob(),
 
 			legacy && babel({
 				extensions: ['.js', '.mjs', '.html', '.svelte'],
@@ -90,9 +80,7 @@ export default {
 			svelte({
 				generate: 'ssr',
 				hydratable: true,
-				dev,
-				extensions,
-				preprocess: mdsvex(mdconfig)
+				dev
 			}),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
@@ -102,8 +90,7 @@ export default {
 			resolve({
 				dedupe: ['svelte']
 			}),
-			commonjs(),
-			glob()
+			commonjs()
 		],
 		external: Object.keys(pkg.dependencies).concat(require('module').builtinModules),
 
