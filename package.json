@@ -3,6 +3,7 @@
   "description": "Personal Blog for Kenny C",
   "author": "Kenny Collings <collingsKenny@gmail.com>",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "dev": "sapper dev --ext '.svelte .svx'",
     "build": "sapper build --legacy --ext '.svelte .svx'",
