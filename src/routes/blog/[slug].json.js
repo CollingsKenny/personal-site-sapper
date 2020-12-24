@@ -1,5 +1,5 @@
 import path from "path";
-import fs from "fs";
+import { promises as fs} from "fs";
 import grayMatter from "gray-matter";
 import marked from "marked";
 import { CONTENT_PATH } from '../../config';
@@ -10,28 +10,17 @@ import { CONTENT_PATH } from '../../config';
 // });
 
 
-export function get(req, res, next) {
-	// the `slug` parameter is available because
-	// this file is called [slug].json.js
+export async function get(req, res, next) {
   const { slug } = req.params;
-  const {data, content}  = grayMatter(fs.readFileSync(path.resolve(CONTENT_PATH, `${slug}/index.md`), 'utf-8'));
 
-
-  const renderer = new marked.Renderer();
   let post = {};
+  const renderer = new marked.Renderer();
 
-  post.html = marked(content, { renderer });
-  post.data = data;
-
-  console.log("bankend", post);
-
-  if (post.html) {
-    res.writeHead(200, {
-      'Content-Type': 'application/json'
-    });
-
-    res.end(JSON.stringify(post));
-  } else {
+  try {
+    const {data, content}  = grayMatter(await fs.readFile(path.resolve(CONTENT_PATH, `${slug}/index.md`), 'utf-8'));
+    post.html = marked(content, { renderer });
+    post.data = data;
+  } catch (error) {
     res.writeHead(404, {
       'Content-Type': 'application/json'
     });
@@ -40,23 +29,14 @@ export function get(req, res, next) {
         message: `Blog post not found`
       })
     );
+    return res;
   }
+  
+  console.log("backend: ", post);
 
+  res.writeHead(200, {
+    'Content-Type': 'application/json'
+  });
 
-
-// 	if (lookup.has(slug)) {
-// 		res.writeHead(200, {
-// 			'Content-Type': 'application/json'
-// 		});
-
-// 		res.end(lookup.get(slug));
-// 	} else {
-// 		res.writeHead(404, {
-// 			'Content-Type': 'application/json'
-// 		});
-
-// 		res.end(JSON.stringify({
-// 			message: `Not found`
-// 		}));
-// 	}
+  res.end(JSON.stringify(post));
 }

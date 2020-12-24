@@ -1,32 +1,16 @@
 <!-- 
-	Notes to myself:
-	this page serves as the "template" for blog posts
-  All styling for individual posts will be done here.
-  
-  Will refer to the route /blog/{blog_post}
+  /blog/{blog_post}
 -->
 
 <script context="module">
   export async function preload({ params }) {
-    // the `slug` parameter is available because
-    // this file is called [slug].svelte
-    return this.fetch(`blog/${params.slug}.json`)
-      .then((res) => res.json())
-      .then((post) => {
-        console.log(post);
-        return { post };
-      });
+    const res = await this.fetch(`blog/${params.slug}.json`);
+    const data = await res.json();
 
-    // const res = await this.fetch(`blog/${params.slug}.json`);
-    // const data = await res.json();
-
-    // if (res.status === 200) {
-    //   console.log(post);
-    //   return post;
-    //   //return { post: data };
-    // } else {
-    //   this.error(res.status, data.message);
-    // }
+    if (res.status === 200) {
+      return { post: data };
+    }
+    this.error(res.status, data.message);
   }
 </script>
 

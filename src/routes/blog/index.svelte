@@ -1,12 +1,16 @@
-<!-- /blog -->
+<!-- 
+  /blog 
+-->
+
 <script context="module">
-  export function preload() {
-    return this.fetch(`blog.json`)
-      .then((res) => res.json())
-      .then((posts) => {
-        console.log(posts);
-        return { posts };
-      });
+  export async function preload() {
+    const res = await this.fetch(`blog.json`);
+    const data = await res.json();
+
+    if (res.status === 200) {
+      return { posts: data };
+    }
+    this.error(res.status, data.message);
   }
 </script>
 
