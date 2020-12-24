@@ -5,9 +5,9 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "dev": "sapper dev --ext '.svelte .svx'",
-    "build": "sapper build --legacy --ext '.svelte .svx'",
-    "export": "sapper export --legacy --ext '.svelte .svx'",
+    "dev": "sapper dev",
+    "build": "sapper build",
+    "export": "sapper export",
     "start": "node __sapper__/build"
   },
   "dependencies": {
