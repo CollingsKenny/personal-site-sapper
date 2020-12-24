@@ -1,14 +1,11 @@
 ---
 slug: '0000'
-title: 'Building This Website with Svelte, Sapper, and Markdown'
-date: 2020-12-23
+title: Building This Website with Svelte, Sapper and Markdown.
+date: 2020-12-24
+date_edit: 2020-12-24
 ---
 
-# Building This Website with Svelte, Sapper and Markdown.
-
-Svelte has been gaining momentum recently and offers solutions to some of the complaints with React. I've been meaning to create a personal site to show off my work and to publish my ideas for a while now, and after reading a few posts [^1] from other developers about Sapper, I decided to give it another shot.
-[^1]: https://www.swyx.io/about/
-[^2]: https://www.codingwithjesse.com/blog/statically-generating-a-blog-with-svelte-sapper/
+Svelte has been gaining momentum recently and offers solutions to some of the complaints with React. I've been meaning to create a personal site to show off my work and to publish my ideas for a while now, and after reading a few posts from other developers about Sapper, I decided to give it another shot.
 
 ## 💡 First thing's first. Start with the ideas.
 
@@ -38,14 +35,10 @@ This list will continue to grow and change as I develop the website.
   - I am using a date formatter for silly reasons because I might want to change the date format later. Will see how this goes.
 - [Gray-matter](https://github.com/jonschlinkert/gray-matter)
   - Manages the YAML at the top of my markdown blog posts
-- [Marked]
+- [Marked](https://marked.js.org/)
   - Processes the markdown into html
--
 
 ## Tasks - Building the blog
-
-https://www.mahmoudashraf.dev/blog/build-a-blog-with-svelte-and-markdown/
-https://www.ryanfiller.com/blog/a-deep-dive-into-sapper/
 
 This task turned out to be composed to two major problems. The first was translating markdown into svelte. The second, listing all the blog posts on the blog page dynamically.
 
@@ -94,15 +87,20 @@ export function get(req, res) {
 
 These are svelte files. They do all the reactive svelte front end stuff, contain the html and css, and display our information. So, for this example we have the `/routes/blog/index.svelte` file. In addition to the normal html and css, we also need to include some code to retreive the list of blogs and their data from the `json` file. We do this simply by fetching at the `blog.json` endpoint and exporting the variable so we can use it as normal.
 
-```svelte
+```html
+<!-- 
+  /blog 
+-->
+
 <script context="module">
-  export function preload() {
-    return this.fetch(`blog.json`)
-      .then((res) => res.json())
-      .then((posts) => {
-        console.log(posts);
-        return { posts };
-      });
+  export async function preload() {
+    const res = await this.fetch(`blog.json`);
+    const data = await res.json();
+
+    if (res.status === 200) {
+      return { posts: data };
+    }
+    this.error(res.status, data.message);
   }
 </script>
 
@@ -120,3 +118,10 @@ Now we can simply use the `posts` object as we created it in the JSON file.
   {/each}
 </ul>
 ```
+
+## Useful links
+
+https://www.swyx.io/about/
+https://www.codingwithjesse.com/blog/statically-generating-a-blog-with-svelte-sapper/
+https://www.mahmoudashraf.dev/blog/build-a-blog-with-svelte-and-markdown/
+https://www.ryanfiller.com/blog/a-deep-dive-into-sapper/
