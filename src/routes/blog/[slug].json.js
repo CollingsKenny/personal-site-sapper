@@ -1,26 +1,34 @@
-import path from "path";
 import { promises as fs} from "fs";
+import path from "path";
 import grayMatter from "gray-matter";
 import marked from "marked";
+import shiki from "shiki";
+
 import { CONTENT_PATH } from '../../config';
-
-// const lookup = new Map();
-// posts.forEach(post => {
-// 	lookup.set(post.slug, JSON.stringify(post));
-// });
-
 
 export async function get(req, res, next) {
   const { slug } = req.params;
 
-  let post = {};
-  const renderer = new marked.Renderer();
+  // Set up markdown renderer with
+  //  syntax highlighting from shiki.
+  shiki.getHighlighter({
+    theme: 'material-theme-darker'
+  }).then(highlighter => {
+    const renderer = {
+      code(code, infostring) {
+        return highlighter.codeToHtml(code, infostring);
+      }
+    }
+    marked.use({renderer});
+  });
 
+  let post = {};
   try {
     const {data, content}  = grayMatter(await fs.readFile(path.resolve(CONTENT_PATH, `${slug}/index.md`), 'utf-8'));
-    post.html = marked(content, { renderer });
+    post.html = marked(content);
     post.data = data;
   } catch (error) {
+    console.error(error);
     res.writeHead(404, {
       'Content-Type': 'application/json'
     });
@@ -31,12 +39,9 @@ export async function get(req, res, next) {
     );
     return res;
   }
-  
-  console.log("backend: ", post);
 
   res.writeHead(200, {
     'Content-Type': 'application/json'
   });
-
   res.end(JSON.stringify(post));
 }

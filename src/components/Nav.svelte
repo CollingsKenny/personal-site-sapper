@@ -14,7 +14,7 @@
   }
 
   .logo {
-    font-family: var(--font-logo);
+    font-family: var(--font-mono);
     font-weight: 400;
     font-size: 23px;
     color: var(--gray-light);

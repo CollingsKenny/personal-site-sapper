@@ -16,6 +16,7 @@
     "gray-matter": "^4.0.2",
     "marked": "^1.2.5",
     "polka": "next",
+    "shiki": "^0.2.7",
     "sirv": "^1.0.0"
   },
   "devDependencies": {
