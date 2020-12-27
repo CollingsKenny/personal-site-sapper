@@ -1,6 +1,3 @@
-<style>
-</style>
-
 <!-- 
   /blog/{blog_post}
 -->

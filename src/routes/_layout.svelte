@@ -1,19 +1,34 @@
 <style>
+  :global(body) {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
   main {
-    margin: 32px auto 0 auto;
+    margin: 0 auto;
     padding: 0 32px;
     max-width: 640px;
+    flex-grow: 1;
+  }
+  :global(header) {
+    flex-shrink: 0;
+  }
+  :global(footer) {
+    flex-shrink: 0;
   }
 </style>
 
 <script>
-  import Nav from "../components/Nav.svelte";
+  import Header from "../components/Header.svelte";
+  import Footer from "../components/Footer.svelte";
 
   export let segment;
 </script>
 
-<Nav segment="{segment}" />
+<Header segment="{segment}" />
 
 <main>
   <slot />
 </main>
+
+<Footer />

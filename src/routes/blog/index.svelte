@@ -1,3 +1,6 @@
+<!-- 
+  /blog 
+-->
 <style>
   article {
     border-bottom: 1px solid var(--gray-light);
@@ -25,9 +28,6 @@
   }
 </style>
 
-<!-- 
-  /blog 
--->
 <script context="module">
   export async function preload() {
     const res = await this.fetch(`blog.json`);

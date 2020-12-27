@@ -4,9 +4,9 @@ body {
   --gray-light: #cfdce2;
   --gray-medium: #85a0ad;
 
-  --font-logo: 'Consolas', monospace;
-  --font-caption: 'PT Sans Caption', sans-serif;
-  --font-text: 'PT Sans', sans-serif;
+  --font-logo: "Consolas", monospace;
+  --font-caption: "PT Sans Caption", sans-serif;
+  --font-text: "PT Sans", sans-serif;
 
   background-color: var(--gray-dark);
   font-family: var(--font-text);
@@ -63,6 +63,22 @@ nav .active {
 /* ================== */
 /*      Main          */
 /* ================== */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+header {
+  flex-shrink: 0;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
 main {
   margin: 0 auto;
   padding: 0 32px;
