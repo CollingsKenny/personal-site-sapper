@@ -1,10 +1,8 @@
 ---
 slug: "0000"
-title: Building This Website with Svelte, Sapper and Markdown.
+title: Building This Website with Svelte, Sapper and Markdown.
 date: 2020-12-24
 ---
-
-# Building This Website with Svelte, Sapper and Markdown.
 
 Svelte has been gaining momentum recently and offers solutions to some of the complaints with React. I've been meaning to create a personal site to show off my work and to publish my ideas for a while now, and after reading a few posts from other developers about Sapper, I decided to give it another shot.
 

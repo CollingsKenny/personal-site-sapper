@@ -2,20 +2,17 @@
   footer {
     width: 100%;
   }
-
   .footer-container {
     margin: 0 auto;
     padding: 22px 32px;
     max-width: 640px;
   }
-
   nav a {
     color: var(--gray-light);
     font-family: var(--font-caption);
     font-size: 13px;
     opacity: 0.7;
   }
-
   nav a:hover {
     opacity: 1;
   }

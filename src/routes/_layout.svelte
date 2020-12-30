@@ -5,13 +5,23 @@
     height: 100vh;
   }
   main {
-    margin: 0 auto;
     padding: 0 32px;
+  }
+  .container {
+    margin: 32px auto 0 auto;
     max-width: 640px;
     flex-grow: 1;
   }
+  :global(body) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
   :global(header) {
     flex-shrink: 0;
+  }
+  :global(main) {
+    flex-grow: 1;
   }
   :global(footer) {
     flex-shrink: 0;
@@ -28,7 +38,9 @@
 <Header segment="{segment}" />
 
 <main>
-  <slot />
+  <div class="container">
+    <slot />
+  </div>
 </main>
 
 <Footer />
