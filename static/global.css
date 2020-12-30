@@ -67,3 +67,7 @@ pre code {
   background-color: transparent;
   padding: 0;
 }
+
+img {
+  max-width: 100%;
+}
