@@ -11,10 +11,10 @@
     color: var(--gray-light);
     font-family: var(--font-caption);
     font-size: 13px;
-    opacity: 0.7;
+    opacity: 1;
   }
   nav a:hover {
-    opacity: 1;
+    opacity: 0.7;
   }
 </style>
 
