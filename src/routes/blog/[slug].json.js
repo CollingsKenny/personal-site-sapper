@@ -4,6 +4,7 @@ import grayMatter from "gray-matter";
 import marked from "marked";
 import shiki from "shiki";
 
+import {processTags} from './index.json';
 import { CONTENT_PATH } from '../../config';
 
 export async function get(req, res, next) {
@@ -39,6 +40,8 @@ export async function get(req, res, next) {
     );
     return res;
   }
+
+  processTags(post);
 
   res.writeHead(200, {
     'Content-Type': 'application/json'

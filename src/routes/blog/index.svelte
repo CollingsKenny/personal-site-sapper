@@ -26,6 +26,27 @@
     display: block;
     color: var(--gray-medium);
   }
+  .tags {
+    --space-tag: 4.5px;
+    margin-top: 12px;
+    margin-bottom: 18px;
+    margin-left: calc(var(--space-tag) * -1);
+  }
+
+  .tags * {
+    margin: 0 var(--space-tag);
+    display: inline-block;
+  }
+
+  .tags p {
+    border-radius: 7px;
+    background-color: #e7b9aa;
+    padding: 2.5px 8px 4px 6px;
+
+    color: #bc3003;
+    font-size: 14px;
+    font-weight: 800;
+  }
 </style>
 
 <script context="module">
@@ -42,16 +63,25 @@
 
 <script>
   import { format } from "date-fns";
+  import { tagStyles } from "./_tags";
   export let posts;
 </script>
 
 <svelte:head>
-  <title>Blog</title>
+  <title>Blog: KennyC</title>
 </svelte:head>
 
-{#each posts as post}
+{#each posts as { data, tags }}
   <article>
-    <a rel="prefetch" href="blog/{post.slug}"><h2>{post.title}</h2></a>
-    <time>{format(new Date(post.date), 'MM/dd/yyyy')}</time>
+    <a rel="prefetch" href="blog/{data.slug}"><h2>{data.title}</h2></a>
+    <time>{format(new Date(data.date), 'MM/dd/yyyy')}</time>
+    <div class="tags">
+      {#each tags as tag}
+        <p
+          style="color: {tagStyles[tag].color}; background-color: {tagStyles[tag].bgcolor}">
+          {tag}
+        </p>
+      {/each}
+    </div>
   </article>
 {/each}
