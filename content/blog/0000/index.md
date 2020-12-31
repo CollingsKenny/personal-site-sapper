@@ -1,6 +1,6 @@
 ---
 slug: "0000"
-title: Building This Website with Svelte, Sapper and Markdown.
+title: Building This Website with Svelte, Sapper, and Markdown.
 date: 2020-12-24
 tags: website, svelte
 ---
@@ -17,14 +17,14 @@ I also designed my blog page in Figma to give myself the opportunity to play wit
 
 At this point I now have a clear vision for what I want my site to look like, the types of information that may go on it, and a starting set of features to develop.
 
-## 🏞️ Second thing's second. Build the development envrionment.
+## 🏞️ Second thing's second. Build the development environment.
 
 This part is always a mix of emotions. It's exciting because you get to finally start playing around with fancy new tools. But it's also nerve-racking because you have no clue how to use these tools.
 
 1. I followed the [Sapper Getting Started] (https://sapper.svelte.dev/docs#Getting_started) guide to scaffold my application.
 2. Installing the Svelte extension.
 3. Explored the [folder structure](https://sapper.svelte.dev/docs#Sapper_app_structure).
-4. Now here I would like to say I spent some time reading and understanding the documentation but honestly I do not have the attention span for that so I jumped right in and began looking up tutorials and other examples of what I want to build.
+4. Now here I would like to say I spent some time reading and understanding the documentation but honestly, I do not have the attention span for that, so I jumped right in and began looking up tutorials and other examples of what I want to build.
 
 ## 🏗️ Packages and Tools
 
@@ -41,19 +41,19 @@ This part is always a mix of emotions. It's exciting because you get to finally 
 
 ### Translating markdown into svelte.
 
-There a few differnt methods used the translate markdown into svelte. At first I was excited about MDsvX (a MDX svelte port) but its use cases ended up clashing with how I was intending to use markdown as content. I finally settled on Gray-matter, used to decode metadata from the markdown file, and marked, a markdown converter to render the markdown as html.
+There a few differnt methods used the translate markdown into svelte. At first, I was excited about MDsvX (a MDX svelte port), but its use cases ended up clashing with how I was intending to use markdown as content. I finally settled on Gray-matter, used to decode metadata from the markdown file, and marked, a markdown converter to render the markdown as html.
 
-### Lising the blog posts.
+### Listing the blog posts.
 
 This gave me a little trouble, mostly because I did not understand how sapper merges dynamic and static information. I will now try my best to regurgate what I learned.
 
 #### The Sapper 'backend' and 'frontend'
 
-The mental model I developed to understand this is that each page in sapper can have two files: `index.svelte` (the frontend) and `index.json.js` (the backend), for example. The timing, location (server vs client), and order of processing these pages is not intuitive but just know it's optimized and works wonderfully.
+The mental model I developed to understand this is that each page in sapper can have two files: `index.svelte` (the frontend) and `index.json.js` (the backend), for example. The timing, location (server vs client), and order of processing these pages is not intuitive but just know it is optimized and works wonderfully.
 
 ##### The 'backend' (`.json.js`)
 
-These files are written entriely in javascript and will return a JSON response. This is where any dynamic information will get processed. So in the case of our `/blog` route, the `/routes/blog/index.json.js` file needs to read through a folder of content, extract the metadata (title, date, etc.), and return that in a JSON list.
+These files are written entriely in javascript and will return a JSON response. This is where any dynamic information will get processed. So, in the case of our `/blog` route, the `/routes/blog/index.json.js` file needs to read through a folder of content, extract the metadata (title, date, etc.), and return that in a JSON list.
 
 ```javascript
 import fs from "fs";
@@ -62,16 +62,18 @@ import grayMatter from "gray-matter";
 
 import { CONTENT_PATH } from "../../config"; // "content/blog"
 
-// Map across "content/blog" folder and create a list of the metadata from the index.md files.
+// Map across "content/blog" folder and create a list
+//   of the metadata from the index.md files.
 const posts = fs.readdirSync(CONTENT_PATH).map((file) => {
   const post = fs.readFileSync(
     path.resolve(CONTENT_PATH, `${file}/index.md`),
     "utf-8"
   );
-  return grayMatter(post).data; // exract the metadata
+  return grayMatter(post).data; // extract the metadata
 });
 
-// Return the posts reversed (so newest post is a the top of the page)
+// Return the posts reversed,
+//   so newest post is at the top of the page.
 export function get(req, res) {
   res.writeHead(200, {
     "Content-Type": "application/json",
@@ -82,7 +84,7 @@ export function get(req, res) {
 
 ##### The frontend (`.svelte`)
 
-These are svelte files. They do all the reactive svelte front end stuff, contain the html and css, and ultimatly display our information. So, for this example, we have the `/routes/blog/index.svelte` file. In addition to the normal html and css, we also need to include some code to retreive the list of blogs and their data from the `json` file. We do this simply by fetching at the `blog.json` endpoint (representing the file `/routes/blog/index.json.js`). Don't forget to create a [prop for the list of posts](https://svelte.dev/docs#1_export_creates_a_component_prop) so we can use it as normal.
+These are svelte files. They do all the reactive svelte front-end stuff, contain the html and css, and ultimatly display our information. So, for this example, we have the `/routes/blog/index.svelte` file. In addition to the normal html and css, we also need to include some code to retreive the list of blogs and their data from the `json` file. We do this simply by fetching at the `blog.json` endpoint (representing the file `/routes/blog/index.json.js`). Don't forget to create a [prop for the list of posts](https://svelte.dev/docs#1_export_creates_a_component_prop) so we can use it as normal.
 
 ```html
 <!-- 
@@ -118,7 +120,7 @@ Now we can simply use the `posts` object as we created it in the JSON file.
 
 ### 3) Syntax highlighting.
 
-Honestly, after choosing my technologies (I know highlightjs is a popular one) this was fairly straight forward. Attaching the code snipit because it was kind of tricky to combine examples from the various documentations.
+Honestly, after choosing my technologies (I know highlightjs is a popular one) this was fairly straightforward. Attaching the code snipit because it was kind of tricky to combine examples from the various documentations.
 
 ```javascript
 // [slug].json.js
