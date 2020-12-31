@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-  <title>{status}</title>
+  <title>Oops! {status}:KennyC</title>
 </svelte:head>
 
 <div class="error-page">

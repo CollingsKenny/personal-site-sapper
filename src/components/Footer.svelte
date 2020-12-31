@@ -20,7 +20,7 @@
 
 <footer>
   <div class="footer-container">
-    <p>Copyright 2021 Kenneth Collings</p>
+    <p>Copyright ©2021 Kenneth Collings</p>
     <nav>
       <a href=".">Home</a>
       <a href="blog">Blog</a>
