@@ -7,20 +7,21 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v2
         with:
           persist-credentials: false
 
-      - name: Use Node.js '12.x'
+      - name: Install and Build 🔧
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
       - run: npm install
       - run: npm run export
-      - name: Build and Deploy
+      - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          ACCESS_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: __sapper__/export/personal-site
+          FOLDER: __sapper__/export
+          CLEAN: true
