@@ -1,0 +1,89 @@
+body {
+  --gray-darker: #0b0b0b;
+  --gray-dark: #1d2225;
+  --gray-light: #cfdce2;
+  --gray-medium: #85a0ad;
+
+  --font-mono: "Consolas", monospace;
+  --font-caption: "PT Sans Caption", sans-serif;
+  --font-text: "PT Sans", sans-serif;
+
+  background-color: var(--gray-dark);
+  font-family: var(--font-text);
+  color: var(--gray-light);
+  margin: 0;
+
+  font-size: 1em;
+  line-height: 1.4em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5em 0;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 1.2em;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.9em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.9em;
+}
+
+h6 {
+  font-size: 0.8em;
+}
+
+li {
+  margin: 0 0 0.5em 0;
+}
+
+a {
+  color: inherit;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--gray-medium);
+  background-color: var(--gray-darker);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+pre {
+  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
+  padding: 0.5em;
+  margin: 0 -32px 0 -32px;
+  border-radius: 2px;
+  overflow-x: auto;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
