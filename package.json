@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build",
-    "export": "sapper export --basepath personal-site --legacy",
+    "export": "sapper export",
     "start": "node __sapper__/build"
   },
   "dependencies": {
