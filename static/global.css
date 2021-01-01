@@ -60,6 +60,7 @@ li {
 
 a {
   color: inherit;
+  word-wrap: break-word;
 }
 
 code {

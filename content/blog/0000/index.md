@@ -146,6 +146,10 @@ After choosing my technologies (I know highlightjs is a popular alternative) thi
 
 TBD!
 
+- Namecheap
+- GithubPages
+- [Deploy Action](https://github.com/JamesIves/github-pages-deploy-action)
+
 ## 🌐 Useful links
 
 - https://www.swyx.io/about/
