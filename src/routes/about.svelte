@@ -12,9 +12,9 @@
 
 <h4>Hi, I'm Kenny!</h4>
 <ul class="nodot">
-  <li>🌉 I am born and raised in the SF Bay Area.</li>
+  <li>🌉 I live in the SF Bay Area.</li>
   <li>🌲 I studied computer science under the redwoods at UC Santa Cruz.</li>
-  <li>👩‍💻 I am currently working at Cepheid.</li>
+  <li>👨‍💻 I am currently working at Cepheid.</li>
 </ul>
 
 <ul>
