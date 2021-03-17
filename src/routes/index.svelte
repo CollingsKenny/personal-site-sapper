@@ -17,18 +17,23 @@
 </style>
 
 <svelte:head>
-  <title>Home: KennyC</title>
+  <title>About: KennyC</title>
 </svelte:head>
 
 <main>
-  <h1>Kenny Collings</h1>
-  <p>
-    🌐 web developer - 🐧 linux enthusiast - 💻 computer nerd - 🏞️
-    outdoorsperson
-  </p>
-  <p>
-    I like to make things sometimes. Currently testing software at
-    <a href="https://www.cepheid.com/">Cepheid</a>.
-  </p>
-  <a class="hero-button button" href="blog">Checkout my blog!</a>
+  <h4>Hi, I'm Kenny!</h4>
+  <ul class="nodot">
+    <li>🌉 I live in the SF Bay Area.</li>
+    <li>🌲 I studied computer science under the redwoods at UC Santa Cruz.</li>
+    <li>👨‍💻 I am currently working at Cepheid.</li>
+  </ul>
+
+  <ul>
+    <li>
+      <a href="mailto:CollingsKenny@gmail.com">CollingsKenny@gmail.com</a>
+    </li>
+    <li><a href="https://github.com/CollingsKenny">GitHub</a></li>
+  </ul>
+
+  <h3><a href="blog/0000">Checkout how I built this site.</a></h3>
 </main>
