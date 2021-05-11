@@ -28,6 +28,8 @@ export async function get(req, res, next) {
     const {data, content}  = grayMatter(await fs.readFile(path.resolve(CONTENT_PATH, `${slug}/index.md`), 'utf-8'));
     post.html = marked(content);
     post.data = data;
+    post.slug = slug;
+
   } catch (error) {
     console.error(error);
     res.writeHead(404, {
