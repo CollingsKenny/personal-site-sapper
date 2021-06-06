@@ -64,17 +64,13 @@
 <script>
   import { format } from "date-fns";
   import { tagStyles } from "./_tags";
+  import HeadSeo from "../../components/seo/HeadSeo.svelte";
   export let posts;
 </script>
 
-<svelte:head>
-  <title>Kenny's Blog</title>
-  <!-- Open Graph protocol ogp.me -->
-  <meta property="og:title" content="Kenny's Blog" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kenc.dev/blog/" />
-  <!-- TODO <meta property="og:image" content="" /> -->
-</svelte:head>
+<HeadSeo
+  title="Kenny Collings: Pages"
+  description="Kenny Collings is a website developer and computer scientist based in the SF Bay Area." />
 
 {#each posts as { data, tags }}
   <article>

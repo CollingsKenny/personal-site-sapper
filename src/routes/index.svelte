@@ -17,10 +17,12 @@
 </style>
 
 <script>
-  import IndexSeo from "../components/seo/IndexSeo.svelte";
+  import HeadSeo from "../components/seo/HeadSeo.svelte";
 </script>
 
-<IndexSeo />
+<HeadSeo
+  title="Kenny Collings: Web Developer"
+  description="Kenny Collings is a website developer and computer scientist based in the SF Bay Area." />
 
 <main>
   <h4>Hi, I'm Kenny!</h4>
