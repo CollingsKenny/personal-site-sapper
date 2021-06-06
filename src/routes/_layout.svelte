@@ -35,7 +35,7 @@
   export let segment;
 </script>
 
-<Header segment="{segment}" />
+<Header {segment} />
 
 <main>
   <div class="container">

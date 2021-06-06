@@ -144,8 +144,7 @@ After choosing my technologies (I know highlightjs is a popular alternative) thi
 
 ## 🚀 And Finally, Deployment!
 
-TBD!
-
+Here are the tools I used for deployment:
 - Namecheap
 - GithubPages
 - [Deploy Action](https://github.com/JamesIves/github-pages-deploy-action)
@@ -157,3 +156,5 @@ TBD!
 - https://www.mahmoudashraf.dev/blog/build-a-blog-with-svelte-and-markdown/
 - https://www.ryanfiller.com/blog/a-deep-dive-into-sapper/
 - https://dev.to/joshnuss/create-a-blog-with-sapper-markdown-part-2-31m4
+
+### [View the full project on Github!](https://github.com/CollingsKenny/personal-site)

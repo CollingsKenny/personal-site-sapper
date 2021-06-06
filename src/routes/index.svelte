@@ -16,18 +16,11 @@
   }
 </style>
 
-<svelte:head>
-  <title>Kenny Collings: Web Developer</title>
-  <meta name="description" content="Kenny Collings is a web developer based in the SF Bay Area, specializing in JavaScript, CSS, HTML, Svelte, and other web technologies." />
+<script>
+  import IndexSeo from "../components/seo/IndexSeo.svelte";
+</script>
 
-  <!-- Open Graph protocol ogp.me -->
-  <meta property="og:title" content="Kenny Collings: Web Developer" />
-  <meta property="og:description" content="Kenny Collings is a web developer based in the SF Bay Area, specializing in JavaScript, CSS, HTML, Svelte, and other web technologies." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kenc.dev" />
-  <!-- TODO <meta property="og:image" content="" /> -->
-
-</svelte:head>
+<IndexSeo />
 
 <main>
   <h4>Hi, I'm Kenny!</h4>

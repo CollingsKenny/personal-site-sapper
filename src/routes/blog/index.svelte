@@ -68,17 +68,24 @@
 </script>
 
 <svelte:head>
-  <title>Blog: KennyC</title>
+  <title>Kenny's Blog</title>
+  <!-- Open Graph protocol ogp.me -->
+  <meta property="og:title" content="Kenny's Blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kenc.dev/blog/" />
+  <!-- TODO <meta property="og:image" content="" /> -->
 </svelte:head>
 
 {#each posts as { data, tags }}
   <article>
     <a rel="prefetch" href="blog/{data.slug}"><h2>{data.title}</h2></a>
-    <time>{format(new Date(data.date), 'MM/dd/yyyy')}</time>
+    <time>{format(new Date(data.date), "MM/dd/yyyy")}</time>
     <div class="tags">
       {#each tags as tag}
         <p
-          style="color: {tagStyles[tag].color}; background-color: {tagStyles[tag].bgcolor}">
+          style="color: {tagStyles[tag].color}; background-color: {tagStyles[
+            tag
+          ].bgcolor}">
           {tag}
         </p>
       {/each}

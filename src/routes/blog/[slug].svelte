@@ -29,7 +29,6 @@
   <title>{post.data.title}</title>
   <!-- Open Graph protocol ogp.me -->
   <meta property="og:title" content={post.data.title} />
-  <!-- <meta property="og:description" content="" /> -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kenc.dev/blog/{post.slug}" />
   <!-- TODO <meta property="og:image" content="" /> -->
