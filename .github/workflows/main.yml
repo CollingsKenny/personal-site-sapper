@@ -20,9 +20,9 @@ jobs:
       - run: npm run export
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           token: ${{ secrets.DEPLOY_TOKEN }}
-          branch: personal-site/gh-pages
+          branch: gh-pages
           FOLDER: __sapper__/export
           CLEAN: true
