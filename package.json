@@ -15,7 +15,7 @@
     "date-fns": "^2.16.1",
     "gray-matter": "^4.0.2",
     "marked": "^1.2.5",
-    "polka": "next",
+    "polka": "^1.0.0-next.22",
     "shiki": "^0.2.7",
     "sirv": "^1.0.0"
   },

@@ -16,19 +16,16 @@
   }
 </style>
 
+<script context="module">
+  export async function preload(page, session) {
+    return this.redirect(302, "blog");
+  }
+</script>
+
 <svelte:head>
   <title>Home: KennyC</title>
 </svelte:head>
 
 <main>
   <h1>Kenny Collings</h1>
-  <p>
-    🌐 web developer - 🐧 linux enthusiast - 💻 computer nerd - 🏞️
-    outdoorsperson
-  </p>
-  <p>
-    I like to make things sometimes. Currently testing software at
-    <a href="https://www.cepheid.com/">Cepheid</a>.
-  </p>
-  <a class="hero-button button" href="blog">Checkout my blog!</a>
 </main>
