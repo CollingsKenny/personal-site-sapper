@@ -18,10 +18,11 @@ jobs:
           node-version: "12.x"
       - run: npm install
       - run: npm run export
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-          BRANCH: gh-pages
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          branch: personal-site/gh-pages
           FOLDER: __sapper__/export
           CLEAN: true
